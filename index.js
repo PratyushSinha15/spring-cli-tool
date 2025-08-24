@@ -6,7 +6,6 @@ import fs from "fs-extra";
 
 async function createSpringBootProject() {
   try {
-    // Step 1: Input from user
     const answers = await inquirer.prompt([
       {
         type: "input",
@@ -49,16 +48,14 @@ async function createSpringBootProject() {
       },
     ]);
 
-    // Step 2: Build URL for Spring Initializr
     const baseUrl = "https://start.spring.io/starter.zip";
     const url = `${baseUrl}?type=${answers.type}&language=${answers.language}&groupId=${answers.groupId}&artifactId=${answers.artifactId}&javaVersion=${answers.javaVersion}&dependencies=${answers.dependencies.join(",")}`;
 
     console.log("📦 Downloading Spring Boot project from:", url);
 
-    // Step 3: Download ZIP file
+
     const response = await axios.get(url, { responseType: "arraybuffer" });
 
-    // Step 4: Save ZIP file
     const zipPath = `${answers.artifactId}.zip`;
     await fs.writeFile(zipPath, response.data);
 

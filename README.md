@@ -11,8 +11,7 @@ A simple and efficient CLI tool to quickly generate a Spring Boot project struct
 - [📝 Example](#-example)
 - [📂 Project Structure](#-project-structure)
 - [🏃 Running the Project](#-running-the-project)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
+
 
 ---
 
